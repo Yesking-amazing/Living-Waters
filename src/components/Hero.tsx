@@ -19,14 +19,14 @@ export default function Hero() {
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
         }}>
-            {/* Removed artificial ambient lights and rays to let the image shine */}
+            {/* Gradient overlay for text readability and smooth transition to next section */}
             <div style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
                 bottom: 0,
-                backgroundColor: 'rgba(1, 17, 36, 0.4)', // Dark overlay for text readability
+                background: 'linear-gradient(to bottom, rgba(1, 17, 36, 0.3) 0%, rgba(1, 17, 36, 0.5) 75%, #011124 100%)',
                 zIndex: 1
             }} />
 

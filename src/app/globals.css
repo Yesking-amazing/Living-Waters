@@ -13,14 +13,14 @@
   --color-shallow-water: #14a0e8;
   --color-sunlight: #fef1c4;
   --color-sun-glow: #e8c672;
-  
+
   --color-text-primary: #ffffff;
   --color-text-secondary: #cde7ff;
-  
+
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.15);
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  
+
   --font-h: var(--font-outfit), sans-serif;
   --font-p: var(--font-inter), sans-serif;
 }
@@ -35,7 +35,12 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-h);
   font-weight: 700;
   line-height: 1.2;
@@ -53,6 +58,7 @@ a {
   letter-spacing: -0.02em;
   background: linear-gradient(to bottom, var(--color-sunlight), #ffffff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -101,8 +107,15 @@ a {
 
 /* Animations */
 @keyframes underwaterFade {
-  0% { opacity: 0; transform: translateY(30px) scale(0.98); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .animate-fade-up {
@@ -110,8 +123,15 @@ a {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .animate-float {
@@ -119,8 +139,17 @@ a {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; filter: blur(40px); }
-  50% { opacity: 0.9; filter: blur(60px); }
+
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: blur(40px);
+  }
+
+  50% {
+    opacity: 0.9;
+    filter: blur(60px);
+  }
 }
 
 .ambient-light {
@@ -130,4 +159,25 @@ a {
   animation: pulseGlow 8s infinite alternate ease-in-out;
   z-index: -1;
   pointer-events: none;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: block !important;
+  }
+
+  .section-padding {
+    padding: 5rem 0;
+    /* Less padding on mobile */
+  }
+
+  /* Reduce glass panel padding on very small screens */
+  .glass-panel {
+    padding: clamp(1.5rem, 5vw, 2rem);
+  }
 }

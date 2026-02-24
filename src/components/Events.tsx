@@ -54,51 +54,61 @@ export default function Events() {
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                     gap: '2rem'
                 }}>
                     {events.map((event, index) => (
                         <div key={index} style={{
+                            position: 'relative',
                             display: 'flex',
                             flexDirection: 'column',
                             padding: '2.5rem',
-                            background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
-                            border: '1px solid rgba(255,255,255,0.08)',
-                            borderRadius: '24px',
-                            transition: 'all 0.4s ease',
+                            background: 'rgba(255,255,255,0.02)',
+                            backdropFilter: 'blur(10px)',
+                            border: '1px solid rgba(255,255,255,0.05)',
+                            borderRadius: '16px',
+                            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
                             cursor: 'default',
+                            overflow: 'hidden'
                         }}
                             onMouseOver={(e) => {
-                                e.currentTarget.style.transform = 'translateY(-5px)';
-                                e.currentTarget.style.border = '1px solid rgba(254,241,196,0.3)';
-                                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.5), 0 0 40px rgba(20,160,232,0.1)';
+                                e.currentTarget.style.transform = 'translateY(-8px)';
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
+                                e.currentTarget.style.borderColor = 'rgba(254,241,196,0.2)';
+                                e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.5), 0 0 20px rgba(254,241,196,0.05)';
                             }}
                             onMouseOut={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.border = '1px solid rgba(255,255,255,0.08)';
+                                e.currentTarget.style.background = 'rgba(255,255,255,0.02)';
+                                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)';
                                 e.currentTarget.style.boxShadow = 'none';
                             }}>
+                            {/* Accent Line */}
                             <div style={{
-                                fontFamily: 'var(--font-h)',
-                                fontSize: '4.5rem',
-                                fontWeight: 800,
-                                color: 'rgba(255,255,255,0.04)',
-                                lineHeight: 1,
-                                marginBottom: '0.5rem',
-                                letterSpacing: '-2px'
-                            }}>
-                                {String(index + 1).padStart(2, '0')}
-                            </div>
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '2px',
+                                background: 'linear-gradient(90deg, transparent, var(--color-sunlight), transparent)',
+                                opacity: 0.5
+                            }} />
+
                             <h3 className="heading-md" style={{ color: '#ffffff', fontSize: '1.75rem', marginBottom: '1.5rem', letterSpacing: '-0.5px' }}>{event.title}</h3>
 
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.5rem' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-sun-glow)', boxShadow: '0 0 10px var(--color-sun-glow)' }}></div>
-                                    <p style={{ fontWeight: 500, color: '#e0f2fe', fontSize: '0.90rem', letterSpacing: '1px', textTransform: 'uppercase' }}>{event.time}</p>
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                                    <svg style={{ minWidth: '20px', width: '20px', height: '20px', marginTop: '2px', color: 'var(--color-sun-glow)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <p style={{ fontWeight: 400, color: '#e0f2fe', fontSize: '0.95rem', letterSpacing: '0.5px' }}>{event.time}</p>
                                 </div>
 
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                    <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--color-shallow-water)', boxShadow: '0 0 10px var(--color-shallow-water)' }}></div>
+                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                                    <svg style={{ minWidth: '20px', width: '20px', height: '20px', marginTop: '2px', color: 'var(--color-shallow-water)' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
                                     <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.95rem' }}>{event.location}</p>
                                 </div>
                             </div>
@@ -107,7 +117,9 @@ export default function Events() {
                                 marginTop: 'auto',
                                 color: 'rgba(255,255,255,0.6)',
                                 lineHeight: 1.6,
-                                fontSize: '1.05rem'
+                                fontSize: '1.05rem',
+                                borderTop: '1px solid rgba(255,255,255,0.05)',
+                                paddingTop: '1.5rem'
                             }}>
                                 {event.description}
                             </p>
