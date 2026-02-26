@@ -4,7 +4,7 @@ import React from 'react';
 const events = [
     {
         title: "Sunday Service",
-        time: "Every Sunday, 6:00 PM",
+        time: "Every Sunday, 4:00 PM",
         location: "Klimentská 1443/50, Praha 1",
         description: "Join us for our main weekly service of worship and the Word."
     },
