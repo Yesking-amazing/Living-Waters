@@ -14,28 +14,11 @@ export default function Hero() {
             overflow: 'hidden',
             padding: '0 2rem',
             backgroundColor: '#011124',
+            backgroundImage: "url('/hero-bg.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
         }}>
-            {/* Video Background */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    zIndex: 0
-                }}
-            >
-                <source src="/hero-video.mp4" type="video/mp4" />
-                {/* Fallback if video fails to load */}
-                <img src="/hero-bg.jpg" alt="Living Waters" style={{ width: '100vw', height: '100vh', objectFit: 'cover' }} />
-            </video>
-
             {/* Gradient overlay for text readability and smooth transition to next section */}
             <div style={{
                 position: 'absolute',

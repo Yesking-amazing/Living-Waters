@@ -59,7 +59,7 @@ export default function About() {
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            backgroundImage: "url('https://images.unsplash.com/photo-1430990480609-2bf7c02a6b1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')",
+                            backgroundImage: "url('/pastor-leslie.jpg')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             mixBlendMode: 'overlay',
