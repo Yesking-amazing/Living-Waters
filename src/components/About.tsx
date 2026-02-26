@@ -49,20 +49,9 @@ export default function About() {
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            background: 'linear-gradient(45deg, var(--color-deep-ocean), var(--color-shallow-water))',
-                            opacity: 0.8,
-                            zIndex: 1
-                        }} />
-                        <div style={{
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
                             backgroundImage: "url('/pastor-leslie.jpg')",
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
-                            mixBlendMode: 'overlay',
                             zIndex: 0
                         }} />
 
