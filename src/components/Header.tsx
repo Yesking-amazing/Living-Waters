@@ -26,19 +26,23 @@ export default function Header() {
         <>
             <header className={`header ${isMobileMenuOpen ? '' : 'glass-panel'}`} style={{
                 position: 'fixed',
-                top: isMobileMenuOpen ? '0' : '1rem',
+                top: isMobileMenuOpen ? '0' : (isScrolled ? '0' : '1rem'),
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: isMobileMenuOpen ? '100%' : 'calc(100% - 2rem)',
-                maxWidth: isMobileMenuOpen ? '100%' : '1200px',
+                width: isMobileMenuOpen ? '100%' : (isScrolled ? '100%' : 'calc(100% - 2rem)'),
+                maxWidth: isMobileMenuOpen ? '100%' : (isScrolled ? '100%' : '1200px'),
                 zIndex: 100,
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: isMobileMenuOpen ? '1.5rem clamp(1rem, 4vw, 2rem)' : '1rem clamp(1rem, 4vw, 2rem)',
-                borderRadius: isMobileMenuOpen ? '0' : '50px',
-                background: isMobileMenuOpen ? 'transparent' : (isScrolled ? 'rgba(1, 17, 36, 0.8)' : 'var(--glass-bg)'),
-                transition: 'all 0.3s ease'
+                borderRadius: isMobileMenuOpen ? '0' : (isScrolled ? '0' : '50px'),
+                background: isMobileMenuOpen ? 'transparent' : (isScrolled ? 'rgba(1, 17, 36, 0.85)' : 'var(--glass-bg)'),
+                backdropFilter: isScrolled ? 'blur(16px)' : 'blur(12px)',
+                WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'blur(12px)',
+                borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
+                boxShadow: isScrolled ? '0 10px 30px rgba(0,0,0,0.5)' : 'var(--glass-shadow)',
+                transition: 'all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)'
             }}>
                 <div className="logo" style={{
                     fontFamily: 'var(--font-h)',

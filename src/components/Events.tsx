@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const events = [
     {
@@ -41,12 +41,33 @@ const events = [
 ];
 
 export default function Events() {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            },
+            { threshold: 0.1 } // Trigger when 10% visible
+        );
+
+        const elements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
+        elements?.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section id="events" className="section-padding" style={{
+        <section id="events" ref={sectionRef} className="section-padding" style={{
             position: 'relative',
             background: 'var(--color-abyss)',
             zIndex: 1
         }}>
+
             <div className="container">
                 <h2 className="heading-lg" style={{ textAlign: 'center', marginBottom: '4rem', color: 'var(--color-sunlight)' }}>
                     Gather With Us
@@ -58,7 +79,8 @@ export default function Events() {
                     gap: '2rem'
                 }}>
                     {events.map((event, index) => (
-                        <div key={index} style={{
+                        <div key={index} className="animate-on-scroll fade-up" style={{
+                            transitionDelay: `${index * 0.15}s`,
                             position: 'relative',
                             display: 'flex',
                             flexDirection: 'column',

@@ -1,9 +1,29 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function About() {
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            },
+            { threshold: 0.15 } // Trigger when 15% visible
+        );
+
+        const elements = sectionRef.current?.querySelectorAll('.animate-on-scroll');
+        elements?.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section id="about" className="section-padding" style={{
+        <section id="about" ref={sectionRef} className="section-padding" style={{
             position: 'relative',
             background: 'var(--color-abyss)',
             zIndex: 1
@@ -16,7 +36,7 @@ export default function About() {
                     alignItems: 'center'
                 }}>
                     {/* Image / Graphic Side */}
-                    <div className="about-visual animate-fade-up" style={{
+                    <div className="about-visual animate-on-scroll fade-up" style={{
                         position: 'relative',
                         borderRadius: '20px',
                         overflow: 'hidden',
@@ -64,7 +84,7 @@ export default function About() {
                     </div>
 
                     {/* Text Content Side */}
-                    <div className="about-content animate-fade-up" style={{ animationDelay: '0.2s' }}>
+                    <div className="about-content animate-on-scroll fade-up" style={{ transitionDelay: '0.2s' }}>
                         <h2 className="heading-lg" style={{ marginBottom: '2rem', color: 'var(--color-sunlight)' }}>
                             About The Living-Water Church
                         </h2>
