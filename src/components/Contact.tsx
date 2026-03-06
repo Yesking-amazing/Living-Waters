@@ -1,12 +1,11 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function Contact() {
-    const [currentOrigin, setCurrentOrigin] = useState('');
-
-    useEffect(() => {
-        setCurrentOrigin(window.location.origin);
-    }, []);
+    // During development, return to localhost. In production on Vercel, return to the live domain.
+    const currentOrigin = process.env.NODE_ENV === 'development' 
+        ? 'http://localhost:3000' 
+        : 'https://www.theliving-waterschurch.com';
 
     return (
         <section id="contact" className="section-padding" style={{
@@ -36,7 +35,7 @@ export default function Contact() {
                         <input type="hidden" name="_captcha" value="false" />
                         <input type="hidden" name="_subject" value="New Message from Living Waters Website" />
                         <input type="text" name="_honey" style={{ display: 'none' }} />
-                        <input type="hidden" name="_next" value={currentOrigin ? `${currentOrigin}/#contact` : ""} />
+                        <input type="hidden" name="_next" value={`${currentOrigin}/#contact`} />
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
