@@ -1,7 +1,13 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Contact() {
+    const [currentOrigin, setCurrentOrigin] = useState('');
+
+    useEffect(() => {
+        setCurrentOrigin(window.location.origin);
+    }, []);
+
     return (
         <section id="contact" className="section-padding" style={{
             background: 'var(--color-deep-ocean)',
@@ -30,7 +36,7 @@ export default function Contact() {
                         <input type="hidden" name="_captcha" value="false" />
                         <input type="hidden" name="_subject" value="New Message from Living Waters Website" />
                         <input type="text" name="_honey" style={{ display: 'none' }} />
-                        <input type="hidden" name="_next" value="http://localhost:3000/#contact" />
+                        <input type="hidden" name="_next" value={currentOrigin ? `${currentOrigin}/#contact` : ""} />
 
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
