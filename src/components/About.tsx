@@ -67,24 +67,24 @@ export default function About() {
                             borderRadius: '16px',
                             border: '1px solid rgba(255,255,255,0.2)'
                         }}>
-                            <h4 style={{ color: 'var(--color-sunlight)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>Pastor Leslie Etijoro</h4>
-                            <p style={{ color: '#e0f2fe', fontSize: '0.9rem', margin: 0 }}>Senior Pastor</p>
+                            <h4 style={{ color: '#111827', fontSize: '1.2rem', marginBottom: '0.25rem' }}>Pastor Leslie Etijoro</h4>
+                            <p style={{ color: '#374151', fontSize: '0.9rem', margin: 0 }}>Senior Pastor</p>
                         </div>
                     </div>
 
                     {/* Text Content Side */}
                     <div className="about-content animate-on-scroll fade-up" style={{ transitionDelay: '0.2s' }}>
                         <h2 className="heading-lg" style={{ marginBottom: '2rem', color: 'var(--color-sunlight)' }}>
-                            About The Living-Water Church
+                            About The Living-Waters Church
                         </h2>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                             <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                                The name <strong>The Living-Water Church</strong> carries a deep and powerful meaning. "Living water" is a biblical symbol of eternal life, renewal, and the presence of the Holy Spirit. In the Bible, Jesus speaks of living water as a source that satisfies spiritual thirst forever - a well that never runs dry.
+                                The name <strong>The Living-Waters Church</strong> carries a deep and powerful meaning. "Living water" is a biblical symbol of eternal life, renewal, and the presence of the Holy Spirit. In the Bible, Jesus speaks of living water as a source that satisfies spiritual thirst forever - a well that never runs dry.
                             </p>
 
                             <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                                The Living-Water Church is built on this promise: that in Christ we find true life, restoration, hope, and peace. Just as water sustains physical life, God's living water sustains our souls.
+                                The Living-Waters Church is built on this promise: that in Christ we find true life, restoration, hope, and peace. Just as water sustains physical life, God's living water sustains our souls.
                             </p>
 
                             <div className="glass-panel" style={{ margin: '1rem 0', padding: '1.5rem', borderLeft: '4px solid var(--color-shallow-water)' }}>
@@ -94,7 +94,7 @@ export default function About() {
                             </div>
 
                             <p style={{ color: 'var(--color-text-secondary)', fontSize: '1.1rem', lineHeight: 1.8 }}>
-                                The Living-Water Church is a place of healing, faith, and transformation - a home where hearts are refreshed and lives are renewed through the power of Jesus Christ.
+                                The Living-Waters Church is a place of healing, faith, and transformation - a home where hearts are refreshed and lives are renewed through the power of Jesus Christ.
                             </p>
                         </div>
                     </div>
